@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.template.edurptemplate.ypjbxx.mapper.TbYaoPinJiBenXinXiMapper">
+
+    <resultMap type="com.template.edurptemplate.ypjbxx.entity.TbYaoPinJiBenXinXiDTO" id="TbYaoPinJiBenXinXiMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="yaoPinMingCheng" column="yao_pin_ming_cheng" jdbcType="VARCHAR"/>
+        <result property="fenLei" column="fen_lei" jdbcType="VARCHAR"/>
+        <result property="gongXiao" column="gong_xiao" jdbcType="VARCHAR"/>
+        <result property="buLiangFanYing" column="bu_liang_fan_ying" jdbcType="VARCHAR"/>
+        <result property="kuCunShangXian" column="ku_cun_shang_xian" jdbcType="VARCHAR"/>
+        <result property="kuCunXiaXian" column="ku_cun_xia_xian" jdbcType="VARCHAR"/>
+        <result property="jinJiaZhiDaoJia" column="jin_jia_zhi_dao_jia" jdbcType="VARCHAR"/>
+        <result property="xiaoShouZhiDaoJia" column="xiao_shou_zhi_dao_jia" jdbcType="VARCHAR"/>
+        <result property="kuCun" column="ku_cun" jdbcType="VARCHAR"/>
+        <result property="maiChu" column="mai_chu" jdbcType="VARCHAR"/>
+        <result property="zongLiRun" column="zong_li_run" jdbcType="OTHER"/>
+        <result property="shengChanShang" column="sheng_chan_shang" jdbcType="OTHER"/>
+        <result property="youXiaoQi" column="you_xiao_qi" jdbcType="OTHER"/>
+        <result property="shengChanShiJian" column="sheng_chan_shi_jian" jdbcType="OTHER"/>
+        <result property="bianHao" column="bian_hao" jdbcType="VARCHAR"/>
+
+
+    </resultMap>
+
+    <!--查询单个-->
+    <sql id="Base_Column_List">
+        id
+        , yao_pin_ming_cheng, fen_lei, gong_xiao, bu_liang_fan_ying, ku_cun_shang_xian, ku_cun_xia_xian, jin_jia_zhi_dao_jia, xiao_shou_zhi_dao_jia,ku_cun ,mai_chu ,sheng_chan_shang,you_xiao_qi,sheng_chan_shi_jian,bian_hao </sql>
+
+
+</mapper>

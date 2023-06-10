@@ -4,7 +4,7 @@ spring:
     hikari:
       idle-timeout: 150000
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:mysql://127.0.0.1:3306/aaaa?autoReconnect=true&useSSL=false&useUnicode=true&characterEncoding=utf-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2b8
+    url: jdbc:mysql://127.0.0.1:3306/a_001_yaodian_man_sys?autoReconnect=true&useSSL=false&useUnicode=true&characterEncoding=utf-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2b8
     username: root
     password: root@123
   servlet:

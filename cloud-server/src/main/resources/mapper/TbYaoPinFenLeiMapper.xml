@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.template.edurptemplate.fenlei.mapper.TbYaoPinFenLeiMapper">
+
+    <resultMap type="com.template.edurptemplate.fenlei.entity.TbYaoPinFenLeiDTO" id="TbYaoPinFenLeiMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="leiMing" column="lei_ming" jdbcType="VARCHAR"/>
+        <result property="gongXiao" column="gong_xiao" jdbcType="VARCHAR"/>
+        <result property="beiZhu" column="bei_zhu" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <sql id="Base_Column_List">
+        id
+        , lei_ming, gong_xiao, bei_zhu    </sql>
+
+
+</mapper>

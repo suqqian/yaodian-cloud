@@ -55,7 +55,6 @@
                             </div>
                         </div>
 
-                        <input id="userType" th:value="*{userType}" style="display: none">
                         <div class="body-nest" id="Blank_Page_Content">
                             <!-- 工具条 -->
                             <div class="btn-group hidden-xs" id="exampleTableEventsToolbar" role="group">
@@ -107,32 +106,17 @@
 <script th:src="@{/static/admin/assets/js/blockUI/jquery.blockUI.js}" type="text/javascript"></script>
 
 <script type="text/javascript">
-    var userType = $('#userType').val();
-    var actions = [];
-
-    function getOpt(id) {
-        actions = [];
-        actions.push('<a class="btn btn-warn btn-xs" href="#" onclick="$.operate.detail(\'' + id + '\')">详情</a>');
-        if (userType === '0') {
-            actions.push('<a class="btn btn-success btn-xs"  href="#" onclick="$.operate.edit(\'' + id + '\')"><i class="fa fa-edit"></i>编辑</a> ');
-            actions.push('<a class="btn btn-danger btn-xs" href="#" onclick="$.operate.remove(\'' + id + '\')"><i class="fa fa-remove"></i>删除</a>');
-        }
-    }
-
-    var dataUrl = window.rootPath + "/tbCeShi/list";
-    var removeUrl = window.rootPath + "/tbCeShi/delete";
-    var createUrl = window.rootPath + "/tbCeShi/add";
-    var updateUrl = window.rootPath + "/tbCeShi/edit/{id}";
-    var exportUrl = window.rootPath + "/tbCeShi/export";
-    var detailUrl = window.rootPath + "/tbCeShi/detail/{id}";
-
+    var dataUrl = window.rootPath + "/tbYaoPinJiBenXinXi/list";
+    var removeUrl = window.rootPath + "/tbYaoPinJiBenXinXi/delete";
+    var createUrl = window.rootPath + "/tbYaoPinJiBenXinXi/add";
+    var updateUrl = window.rootPath + "/tbYaoPinJiBenXinXi/edit/{id}";
+    var exportUrl = window.rootPath + "/tbYaoPinJiBenXinXi/export";
     var options = {
         dataUrl: dataUrl,
         createUrl: createUrl,
         updateUrl: updateUrl,
         removeUrl: removeUrl,
         exportUrl: exportUrl,
-        detailUrl: detailUrl,
         sortName: "roleSort",
         modalName: "",
         search: false,
@@ -152,8 +136,24 @@
             },
 
             {
-                field: 'ceShi',
-                title: '测试',
+                field: 'yaoPinMingCheng',
+                title: '药品名称',
+                align: 'center',
+                valign: 'middle'
+
+            },
+
+            {
+                field: 'bianHao',
+                title: '编号',
+                align: 'center',
+                valign: 'middle'
+
+            },
+
+            {
+                field: 'piCi',
+                title: '批次',
                 align: 'center',
                 valign: 'middle'
 
@@ -161,38 +161,64 @@
 
 
             {
-                field: 'wenJian',
-                title: '文件',
+                field: 'fenLei',
+                title: '分类',
                 align: 'center',
-                valign: 'middle',
-                formatter: function (value, row, index) {
-                    var id = row.id;
-                    var actions = [];
-                    if (row.wenJian != null && row.wenJian != "") {
-                        return '<a href="' + row.wenJian + '" ><i class="fa fa-download"></i></a>';
-                    } else {
-                        return '<p class="pos-abs">' + '文件为空' + '</p>'
-                    }
-                }
+                valign: 'middle'
+
             },
 
+
             {
-                field: 'tuPian',
-                title: '图片',
+                field: 'gongXiao',
+                title: '功效',
                 align: 'center',
-                valign: 'middle',
-                formatter: function (value, row, index) {
-                    var id = row.id;
-                    var actions = [];
-                    actions.push('<img style="height: 45px" src=' + row.tuPian + '> ');
-                    return actions.join('');
-                }
+                valign: 'middle'
+
+            },
+
+
+            {
+                field: 'buLiangFanYing',
+                title: '不良反应',
+                align: 'center',
+                valign: 'middle'
 
             },
 
             {
-                field: 'beiZhu',
-                title: '备注',
+                field: 'kuCun',
+                title: '库存',
+                align: 'center',
+                valign: 'middle'
+
+            },
+            {
+                field: 'shengChanShiJian',
+                title: '生产日期',
+                align: 'center',
+                valign: 'middle'
+
+            }, {
+                field: 'youXiaoQi',
+                title: '保质期(天)',
+                align: 'center',
+                valign: 'middle'
+
+            },
+
+
+            {
+                field: 'shengChanShang',
+                title: '生产厂商',
+                align: 'center',
+                valign: 'middle'
+
+            },
+
+            {
+                field: 'xiaoShouZhiDaoJia',
+                title: '销售价格',
                 align: 'center',
                 valign: 'middle'
 
@@ -205,7 +231,9 @@
                 valign: 'middle',
                 formatter: function (value, row, index) {
                     var id = row.id;
-                    getOpt(id);
+                    var actions = [];
+                    actions.push('<a class="btn btn-success btn-xs"  href="#" onclick="$.operate.edit(\'' + row.id + '\')"><i class="fa fa-edit"></i>编辑</a> ');
+                    actions.push('<a class="btn btn-danger btn-xs" href="#" onclick="$.operate.remove(\'' + row.id + '\')"><i class="fa fa-remove"></i>删除</a>');
                     return actions.join('');
 
                     //return '<a class="btn btn-xs btn-danger" onclick="delPermission(' + "'" + id + "'" + ')"><i class="fa fa-remove"></i>删除</a>';
@@ -215,7 +243,7 @@
     $(function () {
         var oTab = $.table.oTableInit(options);
         oTab.Init();
-        $("#search_key").attr('placeholder', '请输入查询字段-----')
+        $("#search_key").attr('placeholder', '请输入药品名称')
         //$("#search_key").hide()
 
     })
