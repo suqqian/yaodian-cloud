@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.template.edurptemplate.auth.sysper.mapper.TSysPermissionMapper">
+
+    <resultMap type="com.template.edurptemplate.auth.sysper.entity.TSysPermissionDTO" id="TSysPermissionMap">
+        <result property="id" column="id" jdbcType="VARCHAR"/>
+        <result property="name" column="name" jdbcType="VARCHAR"/>
+        <result property="descripion" column="descripion" jdbcType="VARCHAR"/>
+        <result property="url" column="url" jdbcType="VARCHAR"/>
+        <result property="isBlank" column="is_blank" jdbcType="INTEGER"/>
+        <result property="pid" column="pid" jdbcType="VARCHAR"/>
+        <result property="perms" column="perms" jdbcType="VARCHAR"/>
+        <result property="type" column="type" jdbcType="INTEGER"/>
+        <result property="icon" column="icon" jdbcType="VARCHAR"/>
+        <result property="orderNum" column="order_num" jdbcType="INTEGER"/>
+        <result property="visible" column="visible" jdbcType="INTEGER"/>
+        <result column="childcount" jdbcType="INTEGER" property="childCount"/>
+
+    </resultMap>
+
+    <!--查询单个-->
+    <sql id="Base_Column_List">
+          id, name, descripion, url, is_blank, pid, perms, type, icon, order_num, visible    </sql>
+    <select id="selectByUserId" resultMap="TSysPermissionMap">
+        select distinct p.*,(select count(1) from t_sys_permission where pid=p.id) childcount
+        from t_sys_permission_role spr,t_sys_role_user sru,t_sys_permission p
+        where spr.role_id = sru.sys_role_id AND spr.permission_id = p.id
+        <if test="userId!=null and userId!=''">
+            AND sru.sys_user_id=#{userId}
+        </if>
+        GROUP BY p.id
+        ORDER BY order_num is null ASC,order_num ASC
+    </select>
+    <select id="selectAllBySql" resultMap="TSysPermissionMap">
+        select
+            id, name, descripion, url, is_blank, pid, perms, type, icon, order_num, visible, (select count(1) from t_sys_permission where pid=a.id) childcount
+
+            from t_sys_permission a order by order_num  ASC
+
+    </select>
+    <select id="queryRoleId" resultMap="TSysPermissionMap">
+        select p.* from t_sys_permission p
+	left join t_sys_permission_role pr on p.id=pr.permission_id
+	where pr.role_id=#{roleId}
+    </select>
+
+</mapper>

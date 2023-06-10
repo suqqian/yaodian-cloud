@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.template.edurptemplate.auth.sysrole.mapper.TSysRoleMapper">
+
+    <resultMap type="com.template.edurptemplate.auth.sysrole.entity.TSysRoleDTO" id="TSysRoleMap">
+        <result property="id" column="id" jdbcType="VARCHAR"/>
+        <result property="name" column="name" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <sql id="Base_Column_List">
+          id, name    </sql>
+    <delete id="deleteAllPerByRoleId">
+        delete from t_sys_permission_role where role_id=#{roleId}
+    </delete>
+
+
+</mapper>

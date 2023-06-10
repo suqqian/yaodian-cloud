@@ -1,0 +1,58 @@
+spring:
+  servlet:
+    multipart:
+      max-file-size: 1000000000
+      max-request-size: 100000000
+  mvc: #静态文件
+    static-path-pattern: /static/**
+  #模板引擎
+  thymeleaf:
+    model: HTML5
+    prefix: classpath:/templates/
+    suffix: .html
+    #指定编码
+    encoding: utf-8
+    #禁用缓存 默认false
+    cache: false
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+  application:
+    name: client
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+  main:
+    allow-bean-definition-overriding: true
+mybatis:
+  mapperLocations: classpath*:mapper/*.xml
+
+# 系统名称
+sys:
+  config:
+    #系统默认进入首页的显示信息
+    mainUrl: /admin/user/list
+    sysname: 系统名称
+# mybatis log plugin 打印日志
+logging:
+  level:
+    com: debug
+
+server:
+  port: 60020
+
+
+aliyun:
+  file:
+    endpoint: http://oss-cn-beijing.aliyuncs.com
+    ### key
+    accessKeyId: LTAI4GEa1G1VWDELTadpL8Ng
+    ### 密钥
+    accessKeySecret: s6Hy3B32HgdmJqJa3KrRiWTC2wSFdY
+    ### 每一个存储对象都有一个
+    bucketName: study-test-dd
+    ### 用于在浏览器中页面的访问 类比 a标签中href的数据
+    webUrl: https://study-test-dd.oss-accelerate.aliyuncs.com/
+
+

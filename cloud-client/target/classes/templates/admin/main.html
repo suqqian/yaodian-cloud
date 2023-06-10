@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.pollix.at/thymeleaf/shiro">
+<head th:replace="admin/common/html/head :: head_Normal(~{::title},~{::link},~{::style})">
+
+    <title th:text=${title}></title>
+    <!-- 这儿引用单独的css link -->
+    <link rel="stylesheet" th:href="@{/static/admin/assets/js/button/ladda/ladda.min.css}">
+    <style type="text/css">
+        /**
+        *这里写单独的css样式
+        */
+    </style>
+
+
+</head>
+
+<body id="listbody">
+<!-- 右边内容 -->
+<div class="wrap-fluid">
+    <div class="container-fluid paper-wrap bevel tlbr">
+        <!-- 内容 -->
+dd
+        sss
+
+    </div>
+
+
+    <!-- 通用js -->
+    <div th:include="admin/common/html/js :: onload_js">
+    </div>
+    <script type="text/javascript" th:src="@{/static/admin/assets/js/toggle_close.js}"></script>
+
+</body>
+
+</html>
