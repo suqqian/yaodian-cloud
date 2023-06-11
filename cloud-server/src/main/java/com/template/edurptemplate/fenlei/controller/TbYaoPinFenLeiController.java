@@ -102,7 +102,7 @@ public class TbYaoPinFenLeiController extends BaseController {
      * @Description：根据id 删除数据
      * @Return
      */
-    @PostMapping("/delete")
+    @PostMapping("/remove")
     @ResponseBody
     public AjaxResult remove(@RequestParam("ids") String ids) {
         int result = tbYaoPinFenLeiService.deleteByIds(ids);

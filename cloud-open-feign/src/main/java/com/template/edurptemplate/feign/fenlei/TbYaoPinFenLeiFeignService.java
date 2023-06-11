@@ -17,9 +17,7 @@ import java.util.List;
  * @ProjectName: cloud-template
  * @Package: com.template.edurptemplate.feign.fenlei
  * @ClassName: TbYaoPinFenLeiFeignService
- * @Author: zhangqiang
  * @Description:
- * @Date: 2023/6/10 09:25
  * @Version: 1.0
  */
 @FeignClient(value = "server")
